@@ -15,12 +15,6 @@ Then open:
 http://localhost:3000
 ```
 
-## Personalize Next
-
-- Replace `your-email@example.com` in `app/page.tsx`.
-- Replace the placeholder GitHub and LinkedIn URLs in `app/page.tsx`.
-- Add project GitHub/demo links when available.
-- Add formal education, certifications, resume, and work experience when ready.
 
 ## Main Sections
 
