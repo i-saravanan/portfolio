@@ -15,17 +15,12 @@ Then open:
 http://localhost:3000
 ```
 
-## Included Contact Details
+## Personalize Next
 
-- Email: `saravanan05082004@gmail.com`
-- GitHub: `https://github.com/i-saravanan`
-- LinkedIn: `https://www.linkedin.com/in/saravanan-i`
-- Resume summary: `/saravanan-iyappan-resume.html`
-
-## Optional Future Updates
-
-- Add deployed live preview URLs when each project is hosted.
-- Add formal education and certifications when you want them shown.
+- Replace `your-email@example.com` in `app/page.tsx`.
+- Replace the placeholder GitHub and LinkedIn URLs in `app/page.tsx`.
+- Add project GitHub/demo links when available.
+- Add formal education, certifications, resume, and work experience when ready.
 
 ## Main Sections
 
@@ -34,4 +29,5 @@ http://localhost:3000
 - Skills
 - Projects
 - Experience
+- Achievements
 - Contact
