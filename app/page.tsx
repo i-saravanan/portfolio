@@ -160,7 +160,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.08 }}
             className="text-balance font-display text-5xl font-semibold leading-[1.02] text-white sm:text-7xl lg:text-8xl"
           >
-            Saravanan Iyappan
+            Saravanan I
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 22 }}
