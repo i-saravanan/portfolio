@@ -142,6 +142,73 @@ function RotatingCore() {
   );
 }
 
+function HolographicPanel({
+  position,
+  rotation,
+  title,
+  lines,
+  color
+}: {
+  position: [number, number, number];
+  rotation: [number, number, number];
+  title: string;
+  lines: string[];
+  color: string;
+}) {
+  const group = useRef<THREE.Group>(null);
+
+  useFrame((state) => {
+    if (!group.current) return;
+    group.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 1.1 + position[0]) * 0.08;
+  });
+
+  return (
+    <group ref={group} position={position} rotation={rotation}>
+      <mesh>
+        <planeGeometry args={[1.95, 1.22]} />
+        <meshBasicMaterial color={color} transparent opacity={0.13} side={THREE.DoubleSide} />
+      </mesh>
+      <lineSegments>
+        <edgesGeometry args={[new THREE.PlaneGeometry(1.95, 1.22)]} />
+        <lineBasicMaterial color={color} transparent opacity={0.7} />
+      </lineSegments>
+      <Html transform distanceFactor={7} position={[0, 0, 0.02]}>
+        <div className="w-40 rounded border border-white/10 bg-black/45 p-2 font-mono text-[9px] text-white/70 shadow-glow backdrop-blur-md">
+          <p className="mb-1 font-bold uppercase tracking-[0.2em] text-aqua">{title}</p>
+          {lines.map((line) => (
+            <p key={line}>{line}</p>
+          ))}
+        </div>
+      </Html>
+    </group>
+  );
+}
+
+function CodeTextureCube({
+  position,
+  color
+}: {
+  position: [number, number, number];
+  color: string;
+}) {
+  const mesh = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    if (!mesh.current) return;
+    mesh.current.rotation.x = state.clock.elapsedTime * 0.18;
+    mesh.current.rotation.z = state.clock.elapsedTime * 0.14;
+  });
+
+  return (
+    <Float speed={1.35} floatIntensity={0.55}>
+      <mesh ref={mesh} position={position}>
+        <octahedronGeometry args={[0.44, 1]} />
+        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.28} roughness={0.22} metalness={0.78} wireframe />
+      </mesh>
+    </Float>
+  );
+}
+
 function SceneRig() {
   const group = useRef<THREE.Group>(null);
 
@@ -158,6 +225,22 @@ function SceneRig() {
       {nodes.map((node, index) => (
         <ArchitectureNode key={node.label} node={node} index={index} />
       ))}
+      <HolographicPanel
+        position={[-4.25, 0.45, -2.8]}
+        rotation={[0.08, 0.48, 0.02]}
+        title="API"
+        color="#37d7ff"
+        lines={["POST /tickets", "AUTH role=user", "200 persisted"]}
+      />
+      <HolographicPanel
+        position={[4.15, 0.15, -3.05]}
+        rotation={[0.04, -0.5, -0.02]}
+        title="SQL"
+        color="#a66cff"
+        lines={["users -> roles", "tickets -> status", "agent_id indexed"]}
+      />
+      <CodeTextureCube position={[-1.9, -2.35, -1.35]} color="#55f7d2" />
+      <CodeTextureCube position={[1.95, 2.25, -1.45]} color="#ff4ecd" />
       <TechCube position={[-4.1, -1.15, -0.7]} color="#37d7ff" label="Java" />
       <TechCube position={[4.2, 1.35, -0.9]} color="#55f7d2" label="Spring" />
       <TechCube position={[-2.2, 2.0, -2.6]} color="#a66cff" label="Git" />
