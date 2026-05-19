@@ -431,3 +431,59 @@ footer{border-top:1px solid rgba(255,107,43,0.08);padding:2.5rem 4rem;position:r
   .hero-actions{flex-direction:column}
   .about-meta{gap:2rem}
 }
+/* ── POPUP ── */
+
+.popup-msg{
+
+  position:fixed;
+  top:30px;
+  right:30px;
+
+  padding:16px 24px;
+
+  border-radius:12px;
+
+  color:white;
+
+  font-size:0.9rem;
+  font-weight:500;
+
+  z-index:999999;
+
+  opacity:0;
+  transform:translateY(-20px);
+
+  transition:
+          opacity 0.4s ease,
+          transform 0.4s ease;
+
+  backdrop-filter:blur(12px);
+
+}
+
+.popup-msg.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.popup-msg.success{
+
+  background:
+          linear-gradient(
+                  135deg,
+                  #00d4b1,
+                  #0099ff
+          );
+
+}
+
+.popup-msg.error{
+
+  background:
+          linear-gradient(
+                  135deg,
+                  #ff5f5f,
+                  #ff2f2f
+          );
+
+}

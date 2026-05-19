@@ -172,13 +172,93 @@
 });
 
   /* ── FORM ── */
-  function handleForm(){
-  const n=document.getElementById('cf-name').value.trim();
-  const e=document.getElementById('cf-email').value.trim();
-  const m=document.getElementById('cf-msg').value.trim();
-  if(!n||!e||!m){alert('Please fill all fields.');return;}
-  const sub=encodeURIComponent('Portfolio Inquiry from '+n);
-  const body=encodeURIComponent(m+'\n\nFrom: '+n+'\nEmail: '+e);
-  window.location.href='mailto:saravanan05082004@gmail.com?subject='+sub+'&body='+body;
-}
+  /* ── EMAILJS INIT ── */
+
+  emailjs.init("tnDwepdOMJWgMcf2O");
+
+  /* ── CONTACT FORM ── */
+
+  function handleForm(e){
+
+    e.preventDefault();
+
+    const name =
+        document.getElementById("cf-name").value.trim();
+
+    const email =
+        document.getElementById("cf-email").value.trim();
+
+    const message =
+        document.getElementById("cf-msg").value.trim();
+
+    if(!name || !email || !message){
+
+      showPopup("Please fill all fields","error");
+      return;
+
+    }
+
+    const params = {
+
+      from_name: name,
+      from_email: email,
+      message: message
+
+    };
+
+    emailjs.send(
+        "service_3uiiytj",
+        "template_42tb1il",
+        params
+    )
+
+        .then(()=>{
+
+          showPopup(
+              "Message sent successfully",
+              "success"
+          );
+
+          document
+              .getElementById("contact-form")
+              .reset();
+
+        })
+
+        .catch(()=>{
+
+          showPopup(
+              "Failed to send message",
+              "error"
+          );
+
+        });
+
+  }
+  function showPopup(message,type){
+
+    const popup = document.createElement("div");
+
+    popup.className =
+        `popup-msg ${type}`;
+
+    popup.textContent = message;
+
+    document.body.appendChild(popup);
+
+    setTimeout(()=>{
+      popup.classList.add("show");
+    },50);
+
+    setTimeout(()=>{
+
+      popup.classList.remove("show");
+
+      setTimeout(()=>{
+        popup.remove();
+      },400);
+
+    },3000);
+
+  }
 
