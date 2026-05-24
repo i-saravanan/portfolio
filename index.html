@@ -4,551 +4,350 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saravanan I — Backend Engineer</title>
-  <link rel="icon" type="image/png" href="img/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta name="description" content="Java Backend Developer portfolio of Saravanan I. Specializing in Spring Boot, Hibernate, MySQL, and scalable REST APIs.">
+  <meta name="keywords" content="Java, Spring Boot, Backend Developer, Software Engineer, REST API, Saravanan I, Portfolio">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305030f'/%3E%3Cpath d='M10 10 L6 16 L10 22' stroke='%23ff6b2b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M22 10 L26 16 L22 22' stroke='%2300d4b1' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M14 21 L18 11' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://i-saravanan.github.io/">
+  <meta property="og:title" content="Saravanan I — Backend Engineer">
+  <meta property="og:description" content="Java Backend Developer portfolio of Saravanan I. Specializing in Spring Boot, Hibernate, MySQL, and scalable REST APIs.">
+  <meta property="og:image" content="https://i-saravanan.github.io/assets/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://i-saravanan.github.io/">
+  <meta property="twitter:title" content="Saravanan I — Backend Engineer">
+  <meta property="twitter:description" content="Java Backend Developer portfolio of Saravanan I. Specializing in Spring Boot, Hibernate, MySQL, and scalable REST APIs.">
+  <meta property="twitter:image" content="https://i-saravanan.github.io/assets/og-image.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
+<div class="amb"><div class="amb-orb orb1"></div><div class="amb-orb orb2"></div><div class="amb-orb orb3"></div></div>
+<div id="loader"><div class="ld-name">SARAVANAN I</div><div class="ld-bar-bg"><div class="ld-bar" id="lbar"></div></div><div class="ld-pct" id="lpct">0%</div></div>
+<div id="cur-liq"></div>
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+<div id="spotlight"></div>
+<div id="sprg"></div>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-name">SARAVANAN I</div>
-  <div class="loader-bar-bg"><div class="loader-bar-fill" id="lbar"></div></div>
-  <div class="loader-pct" id="lpct">0%</div>
-</div>
-
-<!-- LIQUID CURSOR CANVAS -->
-<div id="cursor-liquid"></div>
-
-<!-- SCROLL PROGRESS -->
-<div id="scroll-prog"></div>
-
-<!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">S<span>I</span>.</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <a href="#" class="nl" onclick="nav('home');return false">S<span>I</span>.</a>
+  <ul class="nlinks" id="navlinks">
+    <li><button onclick="nav('home')" data-page="home">Home</button></li>
+    <li><button onclick="nav('about')" data-page="about">About</button></li>
+    <li><button onclick="nav('projects')" data-page="projects">Projects</button></li>
+    <li><button onclick="nav('skills')" data-page="skills">Skills</button></li>
+    <li><button onclick="nav('experience')" data-page="experience">Experience</button></li>
+    <li><button onclick="nav('contact')" data-page="contact">Contact</button></li>
+    <li><button onclick="nav('lab')" data-page="lab" style="color:var(--vl2)">Lab ✦</button></li>
   </ul>
-  <a href="mailto:saravanan05082004@gmail.com" class="nav-hire">Mail</a>
+  <div style="display:flex;align-items:center;gap:1rem">
+    <a href="mailto:saravanan05082004@gmail.com" class="n-hire">Hire Me</a>
+    <button class="hamburger" id="hbtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-grid"></div>
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-content">
-    <div class="hero-badge"><div class="hero-badge-dot"></div>Open to Backend Roles · 2026 Graduate</div>
-    <div class="hero-pre">// Engineering clean backend systems</div>
-    <h1 class="hero-name">
-      <span class="n1">Saravanan</span>
-      <span class="n2">I.</span>
-    </h1>
-    <div class="hero-tw"><span id="tw-text"></span><span class="tw-cur"></span></div>
-    <p class="hero-desc">
-      Java Backend Developer passionate about building scalable REST APIs and production-grade systems with Spring Boot, Hibernate, and MySQL. I turn complex backend problems into clean, deployable solutions.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-p">View My Work</a>
-      <a href="https://github.com/i-saravanan" target="_blank" class="btn-o">GitHub ↗</a>
-      <a href="mailto:saravanan05082004@gmail.com" class="btn-o">Get In Touch</a>
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero-wrap">
+    <div class="hero-grid-bg"></div>
+    <canvas id="hero-canvas"></canvas>
+    <div class="float-icons">
+      <div class="fi" style="top:20%;left:75%;font-size:1.8rem;animation-delay:0s">☕</div>
+      <div class="fi" style="top:35%;left:82%;font-size:1.5rem;animation-delay:1.5s">🌱</div>
+      <div class="fi" style="top:55%;left:78%;font-size:1.6rem;animation-delay:.8s">🗄</div>
+      <div class="fi" style="top:70%;left:68%;font-size:1.3rem;animation-delay:2s">⚡</div>
+      <div class="fi" style="top:15%;left:65%;font-size:1.4rem;animation-delay:2.5s">🔗</div>
     </div>
+    <div class="hero-content">
+      <div class="h-badge"><div class="h-badge-dot"></div>Open to Backend Roles · 2026 Graduate</div>
+      <div class="h-pre">// Engineering clean backend systems</div>
+      <h1 class="h-name"><span class="n1">Saravanan</span><span class="n2">I.</span></h1>
+      <div class="h-tw"><span id="tw-text"></span><span class="tw-c"></span></div>
+      <p class="h-desc">Java Backend Developer passionate about building scalable REST APIs and production-grade systems with Spring Boot, Hibernate, and MySQL.</p>
+      <div class="h-acts">
+        <button onclick="nav('projects')" class="bp">View My Work</button>
+        <a href="docs/resume.pdf" download="Saravanan_I_Resume.pdf" class="bo">Resume ⬇</a>
+        <a href="https://github.com/i-saravanan" target="_blank" class="bo">GitHub ↗</a>
+        <button onclick="nav('contact')" class="bo">Get In Touch</button>
+      </div>
+    </div>
+    <div class="hero-3d"><canvas id="sphere-canvas" width="360" height="360"></canvas></div>
+    <div class="scroll-hint"><div class="sc-ln"></div>scroll</div>
   </div>
-  <div class="scroll-hint"><div class="scroll-ln"></div>scroll</div>
-</section>
-
-<!-- ROTATING QUOTES -->
-<div id="quote-section">
-  <div class="quote-inner">
-    <div class="quote-text" id="q-text"></div>
-    <div class="quote-author" id="q-author"></div>
-    <div class="quote-dots" id="q-dots"></div>
+  <div id="qs">
+    <div class="qi"><div class="qt" id="q-text"></div><div class="qa" id="q-author"></div><div class="qdots" id="q-dots"></div></div>
   </div>
+  <div style="max-width:1200px;margin:0 auto;padding:5rem 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem">
+    <div class="gc" style="padding:2rem;text-align:center;cursor:none" onclick="nav('about')"><div style="font-size:2rem;margin-bottom:.8rem">⚙️</div><div style="font-weight:700;margin-bottom:.4rem">Backend Engineer</div><div style="font-size:.85rem;color:var(--mt2);line-height:1.6">Scalable systems with Java & Spring Boot</div></div>
+    <div class="gc" style="padding:2rem;text-align:center;cursor:none" onclick="nav('projects')"><div style="font-size:2rem;margin-bottom:.8rem">🚀</div><div style="font-weight:700;margin-bottom:.4rem">3+ Projects</div><div style="font-size:.85rem;color:var(--mt2);line-height:1.6">Production-grade systems & ML integrations</div></div>
+    <div class="gc" style="padding:2rem;text-align:center;cursor:none" onclick="nav('skills')"><div style="font-size:2rem;margin-bottom:.8rem">💡</div><div style="font-weight:700;margin-bottom:.4rem">2026 Graduate</div><div style="font-size:.85rem;color:var(--mt2);line-height:1.6">ECE → Software · Ready to ship real-world code</div></div>
+  </div>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-social"><a href="https://github.com/i-saravanan" target="_blank"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a><a href="https://www.linkedin.com/in/saravanan-i" target="_blank"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM3.56 20.45h3.55V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><a href="mailto:saravanan05082004@gmail.com"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a></div><div class="foot-copy">Built with precision · 2026</div></div></div>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="section">
-    <div class="sec-label reveal">01 / About</div>
-    <h2 class="sec-title reveal rd1">WHO <span class="dim">AM I</span></h2>
-    <div class="sec-line reveal rd2"></div>
-    <div class="about-grid">
-      <div class="about-visual reveal">
-        <div class="av-pad">
-          <div class="av-ring2"></div>
-          <div class="av-ring1"></div>
-          <div class="av-box">SARA</div>
-          <div class="av-float af1">☕ Java</div>
-          <div class="av-float af2">🌱 Spring Boot</div>
-          <div class="av-float af3">🗄 MySQL</div>
-        </div>
-      </div>
+<div class="page" id="page-about">
+  <div class="sec" style="padding-top:8rem;padding-bottom:2rem">
+    <div class="slabel reveal">About Me</div><h1 class="stitle reveal rd1">WHO <span class="dim">AM I</span></h1><div class="sline reveal rd2"></div>
+    <div class="abt-grid reveal">
+      <div class="abt-visual"><div class="av-pad"><div class="avr2"></div><div class="avr1"></div><div class="av-box">SI</div><div class="av-fl af1">☕ Java 17</div><div class="av-fl af2">🌱 Spring Boot</div><div class="av-fl af3">🗄 MySQL</div></div></div>
       <div>
-        <div class="about-text reveal rd1">
+        <div class="abt-text reveal rd1">
           <p>I'm <strong>Saravanan I</strong>, a Java Backend Developer and ECE student focused on building scalable backend systems, REST APIs, and modern web applications. I enjoy transforming complex ideas into clean, production-oriented solutions using Java, Spring Boot, MySQL, and modern development tools.</p>
-          <p>My engineering foundation in Electronics & Communication gives me a systems-level perspective that shapes how I design backend architectures — efficient, reliable, and built to scale. I'm actively targeting <strong>Backend Developer</strong> and <strong>Associate Software Engineer</strong> roles at product-based companies and MNCs.</p>
+          <p>My engineering foundation in <strong>Electronics & Communication</strong> gives me a systems-level thinking pattern — I naturally think in terms of inputs, processing pipelines, outputs, and fault tolerance. That mindset translates directly into how I design backend architectures.</p>
+          <p>I'm not just writing code — I'm building systems that are <strong>clean, scalable, and maintainable</strong>. Every design decision I make is backed by a reason, and I care deeply about code that humans can read as well as machines can execute.</p>
         </div>
-        <div class="about-meta reveal rd2">
-          <div><span class="am-num">3+</span><span class="am-label">Full Projects</span></div>
-          <div><span class="am-num">Java</span><span class="am-label">Primary Stack</span></div>
-          <div><span class="am-num">2026</span><span class="am-label">Graduate</span></div>
-        </div>
+        <div class="abt-meta reveal rd2"><div><span class="am-n">3+</span><span class="am-l">Full Projects</span></div><div><span class="am-n">Java</span><span class="am-l">Primary Stack</span></div><div><span class="am-n">2026</span><span class="am-l">Graduate</span></div></div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" style="background:rgba(255,107,43,0.015);border-top:1px solid rgba(255,107,43,0.06);border-bottom:1px solid rgba(255,107,43,0.06)">
-  <div class="section">
-    <div class="sec-label reveal">02 / Skills</div>
-    <h2 class="sec-title reveal rd1">TECH <span class="dim">STACK</span></h2>
-    <div class="sec-line reveal rd2"></div>
-    <div class="skills-grid">
-
-      <!-- Java -->
-      <div class="sk-card reveal" style="--w:0.92">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M47.6 67.9s-4.4 2.6 3.1 3.4c9 1 13.6.9 23.5-.9 0 0 2.6 1.6 6.2 3-22.1 9.5-50-0.5-32.8-5.5z" fill="#ff6b2b"/>
-            <path d="M44.9 58.3s-4.9 3.6 2.6 4.4c9.7 1 17.4 1.1 30.7-1.5 0 0 1.8 1.8 4.6 2.8-27.2 7.9-57.5.7-37.9-5.7z" fill="#ff6b2b"/>
-            <path d="M66.7 43.1c5.5 6.4-1.5 12.1-1.5 12.1s14-7.2 7.6-16.2c-6-8.4-10.6-12.6 14.3-27 0-.1-39.1 9.7-20.4 31.1z" fill="#ff8f5e"/>
-            <path d="M90.2 74.6s3.3 2.7-3.6 4.8c-13 3.9-54.2 5.1-65.6.2-4.1-1.8 3.6-4.2 6-4.7 2.5-.5 3.9-.4 3.9-.4-4.5-3.2-29.2 6.3-12.5 8.9 45.4 7.4 82.8-3.3 71.8-8.8z" fill="#ff6b2b"/>
-            <path d="M49.8 76.6s-20.7 4.9-7.3 6.7c5.7.8 17 .6 27.6-.3 8.6-.7 17.2-2.3 17.2-2.3s-3 1.3-5.2 2.8c-21 5.5-61.5 3-49.9-2.7 9.8-4.9 17.6-4.2 17.6-4.2z" fill="#ff6b2b"/>
-            <path d="M79.5 91.7c21.4-11.1 11.5-21.8 4.6-20.4-1.7.4-2.5.7-2.5.7s.6-1 1.9-1.4c14.1-4.9 25 14.6-4.4 22.4 0-.1.3-.2.4-.3z" fill="#ff8f5e"/>
-            <path d="M74.4 1s16.9 16.9-16 42.9c-26.3 20.8-6 32.6 0 46.2-15.4-13.9-26.7-26.1-19.1-37.5C50.1 35.3 80.1 27.2 74.4 1z" fill="#ff8f5e"/>
-            <path d="M52 102.4c20.5 1.3 52-0.7 52.8-10.3 0 0-1.4 3.7-17 6.6-17.5 3.3-39.1 2.9-51.9.8 0 0 2.6 2.2 16.1 2.9z" fill="#ff6b2b"/>
-          </svg>
-        </div>
-        <div class="sk-name">Java</div>
-        <div class="sk-type">Language</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- Spring Boot -->
-      <div class="sk-card reveal rd1" style="--w:0.84">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="64" cy="64" r="52" fill="none" stroke="#6abf69" stroke-width="6"/>
-            <path d="M52 40 Q36 64 52 88" stroke="#6abf69" stroke-width="5" fill="none" stroke-linecap="round"/>
-            <path d="M76 40 Q92 64 76 88" stroke="#6abf69" stroke-width="5" fill="none" stroke-linecap="round"/>
-            <path d="M40 52 Q64 36 88 52" stroke="#6abf69" stroke-width="5" fill="none" stroke-linecap="round"/>
-            <path d="M40 76 Q64 92 88 76" stroke="#6abf69" stroke-width="5" fill="none" stroke-linecap="round"/>
-            <circle cx="64" cy="64" r="10" fill="#6abf69"/>
-          </svg>
-        </div>
-        <div class="sk-name">Spring Boot</div>
-        <div class="sk-type">Framework</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- MySQL -->
-      <div class="sk-card reveal rd2" style="--w:0.80">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="64" cy="32" rx="44" ry="16" fill="none" stroke="#00758f" stroke-width="5"/>
-            <rect x="20" y="32" width="88" height="6" fill="none"/>
-            <path d="M20 32 Q20 80 64 88 Q108 80 108 32" fill="none" stroke="#00758f" stroke-width="5"/>
-            <path d="M20 50 Q20 80 64 88 Q108 80 108 50" fill="rgba(0,117,143,0.15)"/>
-            <ellipse cx="64" cy="32" rx="44" ry="16" fill="rgba(0,117,143,0.2)"/>
-            <text x="64" y="67" text-anchor="middle" fill="#00758f" font-family="monospace" font-weight="bold" font-size="18">SQL</text>
-          </svg>
-        </div>
-        <div class="sk-name">MySQL</div>
-        <div class="sk-type">Database</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- Hibernate -->
-      <div class="sk-card reveal rd3" style="--w:0.82">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="64,12 110,36 110,92 64,116 18,92 18,36" fill="none" stroke="#bcae79" stroke-width="5"/>
-            <polygon points="64,30 92,46 92,82 64,98 36,82 36,46" fill="none" stroke="#bcae79" stroke-width="3"/>
-            <circle cx="64" cy="64" r="10" fill="#bcae79"/>
-          </svg>
-        </div>
-        <div class="sk-name">Hibernate</div>
-        <div class="sk-type">ORM</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- REST API -->
-      <div class="sk-card reveal" style="--w:0.88">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <rect x="14" y="44" width="100" height="40" rx="8" fill="none" stroke="#00d4b1" stroke-width="4"/>
-            <line x1="14" y1="64" x2="114" y2="64" stroke="#00d4b1" stroke-width="2" stroke-dasharray="5,4"/>
-            <text x="30" y="57" fill="#00d4b1" font-size="13" font-family="monospace" font-weight="600">GET</text>
-            <text x="30" y="79" fill="#00d4b1" font-size="13" font-family="monospace" font-weight="600">POST</text>
-            <path d="M80 52 L100 64 L80 76" stroke="#00d4b1" stroke-width="3" fill="none" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="sk-name">REST APIs</div>
-        <div class="sk-type">Architecture</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- Git -->
-      <div class="sk-card reveal rd1" style="--w:0.82">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <path d="M124.7 58.6L69.4 3.3a11.2 11.2 0 00-15.8 0L41.8 15.1l15.8 15.8a13.3 13.3 0 0116.8 16.9l15.2 15.2a13.3 13.3 0 11-8 7.9L66.4 55.7v34.9a13.3 13.3 0 11-10.8-.4V54.7A13.3 13.3 0 0148.4 38L32.9 22.5 3.3 52.1a11.2 11.2 0 000 15.8l55.3 55.3a11.2 11.2 0 0015.8 0l50.3-50.3a11.2 11.2 0 000-14.3z" fill="#f05032"/>
-          </svg>
-        </div>
-        <div class="sk-name">Git</div>
-        <div class="sk-type">Version Control</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- GitHub -->
-      <div class="sk-card reveal rd2" style="--w:0.80">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <path d="M64 5C31.2 5 4.7 31.5 4.7 64.3c0 26.2 17 48.5 40.6 56.4 3 .6 4.1-1.3 4.1-2.8v-9.9c-16.6 3.6-20.1-8-20.1-8-2.7-6.9-6.6-8.7-6.6-8.7-5.4-3.7.4-3.6.4-3.6 5.9.4 9 6.1 9 6.1 5.3 9.1 13.9 6.4 17.3 4.9.5-3.9 2.1-6.5 3.8-7.9-13.2-1.5-27-6.6-27-29.5 0-6.5 2.3-11.8 6.1-16-.6-1.5-2.6-7.6.6-15.8 0 0 5-1.6 16.3 6.1 4.7-1.3 9.8-2 14.8-2 5 0 10.1.7 14.8 2C93 32.8 98 34.4 98 34.4c3.2 8.2 1.2 14.3.6 15.8 3.8 4.2 6.1 9.5 6.1 16 0 22.9-13.8 28-27.1 29.4 2.1 1.8 4 5.5 4 11v16.3c0 1.6 1.1 3.4 4.1 2.8 23.6-7.9 40.6-30.2 40.6-56.3C123.3 31.5 96.8 5 64 5z" fill="#e0d0ff"/>
-          </svg>
-        </div>
-        <div class="sk-name">GitHub</div>
-        <div class="sk-type">Collaboration</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- Maven -->
-      <div class="sk-card reveal rd3" style="--w:0.76">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 64 L64 16 L106 64 L64 112 Z" fill="none" stroke="#c71a36" stroke-width="5"/>
-            <path d="M42 64 L64 38 L86 64 L64 90 Z" fill="rgba(199,26,54,0.2)" stroke="#c71a36" stroke-width="3"/>
-            <circle cx="64" cy="64" r="8" fill="#c71a36"/>
-            <line x1="64" y1="16" x2="64" y2="112" stroke="#c71a36" stroke-width="2" stroke-dasharray="4,4"/>
-          </svg>
-        </div>
-        <div class="sk-name">Maven</div>
-        <div class="sk-type">Build Tool</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- JDBC -->
-      <div class="sk-card reveal" style="--w:0.78">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="20" width="88" height="20" rx="4" fill="none" stroke="#ff6b2b" stroke-width="4"/>
-            <rect x="20" y="54" width="88" height="20" rx="4" fill="none" stroke="#ff6b2b" stroke-width="4"/>
-            <rect x="20" y="88" width="88" height="20" rx="4" fill="none" stroke="#ff6b2b" stroke-width="4"/>
-            <line x1="64" y1="40" x2="64" y2="54" stroke="#ff6b2b" stroke-width="3"/>
-            <line x1="64" y1="74" x2="64" y2="88" stroke="#ff6b2b" stroke-width="3"/>
-          </svg>
-        </div>
-        <div class="sk-name">JDBC</div>
-        <div class="sk-type">Data Access</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- Spring JPA -->
-      <div class="sk-card reveal rd1" style="--w:0.83">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="64" cy="40" r="16" fill="none" stroke="#6abf69" stroke-width="4"/>
-            <circle cx="36" cy="88" r="16" fill="none" stroke="#6abf69" stroke-width="4"/>
-            <circle cx="92" cy="88" r="16" fill="none" stroke="#6abf69" stroke-width="4"/>
-            <line x1="64" y1="56" x2="36" y2="72" stroke="#6abf69" stroke-width="3"/>
-            <line x1="64" y1="56" x2="92" y2="72" stroke="#6abf69" stroke-width="3"/>
-            <circle cx="64" cy="40" r="5" fill="#6abf69"/>
-            <circle cx="36" cy="88" r="5" fill="#6abf69"/>
-            <circle cx="92" cy="88" r="5" fill="#6abf69"/>
-          </svg>
-        </div>
-        <div class="sk-name">Spring Data JPA</div>
-        <div class="sk-type">ORM Bridge</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
-      <!-- Python
-      <div class="sk-card reveal rd2" style="--w:0.62">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <path d="M63.4 7.2C40.8 7.2 42.2 17 42.2 17l0 10.4h21.8v3.1H32.6S17 28.7 17 51.5s13.7 21.9 13.7 21.9h8.2v-10.5s-.4-13.7 13.5-13.7h23.3s13.1.2 13.1-12.6V20.3S91 7.2 63.4 7.2z" fill="#3674a8"/>
-            <circle cx="51" cy="19" r="3.5" fill="#ffd845"/>
-            <path d="M64.6 120.8c22.6 0 21.2-9.8 21.2-9.8v-10.4H64v-3.1h31.4s15.6 1.8 15.6-21-13.7-21.9-13.7-21.9h-8.2v10.5s.4 13.7-13.5 13.7H52.3s-13.1-.2-13.1 12.6v21.2S37 120.8 64.6 120.8z" fill="#ffd845"/>
-            <circle cx="77" cy="109" r="3.5" fill="#3674a8"/>
-          </svg>
-        </div>
-        <div class="sk-name">Python</div>
-        <div class="sk-type">Scripting / ML</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div> -->
-
-      <!-- Postman -->
-      <div class="sk-card reveal rd3" style="--w:0.77">
-        <div class="sk-logo">
-          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="64" cy="64" r="52" fill="none" stroke="#ff6c37" stroke-width="5"/>
-            <path d="M88 64 A24 24 0 1 1 88 63.9Z" fill="none" stroke="#ff6c37" stroke-width="4"/>
-            <line x1="64" y1="40" x2="90" y2="40" stroke="#ff6c37" stroke-width="3" stroke-linecap="round"/>
-            <line x1="78" y1="34" x2="78" y2="46" stroke="#ff6c37" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="64" cy="64" r="6" fill="#ff6c37"/>
-          </svg>
-        </div>
-        <div class="sk-name">Postman</div>
-        <div class="sk-type">API Testing</div>
-        <div class="sk-bar"><div class="sk-bar-f"></div></div>
-      </div>
-
+  <div class="sec" style="padding-top:2rem;padding-bottom:2rem">
+    <div class="slabel reveal">Developer Mindset</div><h2 class="stitle reveal rd1" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:.5rem">How I <span class="dim">Think</span></h2><div class="sline reveal rd2"></div>
+    <div class="phil-grid reveal">
+      <div class="phil-card"><span class="phil-icon">🏗️</span><div class="phil-title">Architecture First</div><p class="phil-text">Before writing a single line of code, I design the system. Data flow, API contracts, DB schema, and role boundaries are planned before implementation begins.</p></div>
+      <div class="phil-card"><span class="phil-icon">🧹</span><div class="phil-title">Clean Code Always</div><p class="phil-text">Code is read more than it's written. I follow SOLID principles, write meaningful variable names, and keep functions doing exactly one thing.</p></div>
+      <div class="phil-card"><span class="phil-icon">⚡</span><div class="phil-title">Ship, Iterate, Learn</div><p class="phil-text">I build working systems first, then refine. Perfectionism is the enemy of progress. Get it working, get it right, then get it fast.</p></div>
     </div>
+    <div class="slabel reveal">Engineering Journey</div><h2 class="stitle reveal rd1" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:.5rem">ECE → <span class="dim">Software</span></h2><div class="sline reveal rd2"></div>
+    <div class="about-timeline reveal">
+      <div class="tl-item"><div class="tl-year">2022</div><div class="tl-card"><div class="tl-role">Started ECE Degree</div><div class="tl-org">Electronics & Communication Engineering</div><p class="tl-desc">Began with circuit theory, signal processing, and embedded systems. Developed a strong instinct for thinking in systems — inputs, logic, outputs. This became the foundation for backend thinking.</p></div></div>
+      <div class="tl-item"><div class="tl-year">2023</div><div class="tl-card"><div class="tl-role">Discovered Backend Engineering</div><div class="tl-org">Core Java → JDBC → Maven</div><p class="tl-desc">Started with Core Java and OOP. Immediately connected with how classes, inheritance, and encapsulation mirror real-world systems design. Moved into JDBC for database access and Maven for project management.</p></div></div>
+      <div class="tl-item"><div class="tl-year">2024</div><div class="tl-card"><div class="tl-role">Spring Ecosystem Mastery</div><div class="tl-org">Spring Boot · Hibernate · JPA · REST</div><p class="tl-desc">Deep-dived into the Spring ecosystem. Built production-grade REST APIs, implemented Hibernate ORM for complex entity relationships, and discovered the elegance of Spring Data JPA repositories.</p></div></div>
+      <div class="tl-item"><div class="tl-year">2025–26</div><div class="tl-card"><div class="tl-role">Production Systems & ML Bridge</div><div class="tl-org">Multi-project · ML Integration · Security</div><p class="tl-desc">Built three full backend systems: role-based ticket platform, enterprise leave management, and a Spring Boot Smart Agriculture service. Actively targeting Backend Developer roles.</p></div></div>
+    </div>
+    <div class="slabel reveal">Education</div><div class="sline reveal rd1" style="margin-top:.5rem"></div>
+    <div class="edu-strip reveal"><div class="edu-card"><div class="edu-icon">🎓</div><div><div class="edu-deg">B.E. Electronics & Communication Engineering</div><div class="edu-school">Tamil Nadu, India</div><div class="edu-year">2022 – 2026</div></div></div><div class="edu-card"><div class="edu-icon">🏫</div><div><div class="edu-deg">Higher Secondary Certificate</div><div class="edu-school">Tamil Nadu State Board</div><div class="edu-year">Completed 2022</div></div></div></div>
   </div>
-</section>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-copy">Built with precision · 2026</div></div></div>
+</div>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="section">
-    <div class="sec-label reveal">03 / Projects</div>
-    <h2 class="sec-title reveal rd1">WHAT I'VE <span class="dim">BUILT</span></h2>
-    <div class="sec-line reveal rd2"></div>
+<div class="page" id="page-projects">
+  <div class="sec" style="padding-top:8rem;padding-bottom:2rem">
+    <div class="slabel reveal">Projects</div><h1 class="stitle reveal rd1">WHAT I'VE <span class="dim">BUILT</span></h1><div class="sline reveal rd2"></div>
     <div class="projects-grid">
-
-      <div class="proj-card reveal" data-tilt>
-        <div class="proj-hdr phdr-ticket">
-          <div class="arch-row">
-            <div class="a-box">Client</div><div class="a-arr"></div>
-            <div class="a-box">REST API</div><div class="a-arr"></div>
-            <div class="a-box">Role Filter</div><div class="a-arr"></div>
-            <div class="a-box">DB</div>
-          </div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-num">// 01</div>
-          <div class="proj-title">Ticket Management System</div>
-          <p class="proj-desc">Multi-role helpdesk with Admin, Manager, and User tiers. Full ticket lifecycle — creation, assignment, escalation, resolution — secured with Spring Security authentication.</p>
-          <div class="proj-tech">
-            <span class="pt">Spring Boot</span><span class="pt">Spring Security</span>
-            <span class="pt">Spring Data JPA</span><span class="pt">MySQL</span><span class="pt">REST API</span>
-          </div>
-          <div class="proj-foot">
-            <a href="https://github.com/i-saravanan" target="_blank" class="p-link">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              View on GitHub
-            </a>
-            <span class="p-status">Complete</span>
-          </div>
-        </div>
+      <div class="pcard reveal" data-tilt>
+        <div class="ph ph-t"><div class="arch-row"><div class="ab">Client</div><div class="aa"></div><div class="ab">REST API</div><div class="aa"></div><div class="ab">Role Filter</div><div class="aa"></div><div class="ab">DB</div></div></div>
+        <div class="pb"><div class="pnum">// 01</div><div class="ptitle">Ticket Management System</div><p class="pdesc">Multi-role helpdesk with Admin, Manager, and User tiers. Full ticket lifecycle — creation, assignment, escalation, resolution — secured with Spring Security.</p><div class="ptech"><span class="pt">Spring Boot</span><span class="pt">Spring Security</span><span class="pt">Spring Data JPA</span><span class="pt">MySQL</span></div>
+          <div class="pfoot"><a href="https://github.com/i-saravanan" target="_blank" class="pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a><button class="pdetail-btn" onclick="nav('proj-ticket')">Deep Dive →</button></div></div>
       </div>
-
-      <div class="proj-card reveal" data-tilt>
-        <div class="proj-hdr phdr-leave">
-          <div class="arch-row">
-            <div class="a-box">Employee</div><div class="a-arr"></div>
-            <div class="a-box">Leave API</div><div class="a-arr"></div>
-            <div class="a-box">HR Engine</div><div class="a-arr"></div>
-            <div class="a-box">DB</div>
-          </div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-num">// 02</div>
-          <div class="proj-title">Leave Management System</div>
-          <p class="proj-desc">Enterprise leave management backend handling request workflows, balance tracking, and approval chains across HR, manager, and employee roles. Full CRUD with Hibernate ORM.</p>
-          <div class="proj-tech">
-            <span class="pt">Spring Boot</span><span class="pt">Hibernate</span>
-            <span class="pt">MySQL</span><span class="pt">REST API</span><span class="pt">Maven</span>
-          </div>
-          <div class="proj-foot">
-            <a href="https://github.com/i-saravanan" target="_blank" class="p-link">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              View on GitHub
-            </a>
-            <span class="p-status">Complete</span>
-          </div>
-        </div>
+      <div class="pcard reveal rd1" data-tilt>
+        <div class="ph ph-l"><div class="arch-row"><div class="ab">Employee</div><div class="aa"></div><div class="ab">Leave API</div><div class="aa"></div><div class="ab">HR Engine</div><div class="aa"></div><div class="ab">DB</div></div></div>
+        <div class="pb"><div class="pnum">// 02</div><div class="ptitle">Leave Management System</div><p class="pdesc">Enterprise leave management backend handling request workflows, balance tracking, and approval chains across HR, manager, and employee roles.</p><div class="ptech"><span class="pt">Spring Boot</span><span class="pt">Hibernate</span><span class="pt">MySQL</span><span class="pt">REST API</span></div>
+          <div class="pfoot"><a href="https://github.com/i-saravanan" target="_blank" class="pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a><button class="pdetail-btn" onclick="nav('proj-leave')">Deep Dive →</button></div></div>
       </div>
-
-      <div class="proj-card reveal" data-tilt>
-        <div class="proj-hdr phdr-agri">
-          <div class="arch-row">
-            <div class="a-box">Soil Data</div><div class="a-arr"></div>
-            <div class="a-box">ML Model</div><div class="a-arr"></div>
-            <div class="a-box">Predictor</div><div class="a-arr"></div>
-            <div class="a-box">Output</div>
-          </div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-num">// 03</div>
-          <div class="proj-title">Smart Agriculture ML System</div>
-          <p class="proj-desc">Intelligent crop recommendation engine analyzing soil composition, climate, humidity, and rainfall data via ML models to suggest optimal crops — bridging ECE and software engineering.</p>
-          <div class="proj-tech">
-            <span class="pt">Python</span><span class="pt">Scikit-learn</span>
-            <span class="pt">Pandas</span><span class="pt">ML Classification</span>
-          </div>
-          <div class="proj-foot">
-            <a href="https://github.com/i-saravanan" target="_blank" class="p-link">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              View on GitHub
-            </a>
-            <span class="p-status">Complete</span>
-          </div>
-        </div>
+      <div class="pcard reveal rd2" data-tilt>
+        <div class="ph ph-a"><div class="arch-row"><div class="ab">Client</div><div class="aa"></div><div class="ab">Spring Boot</div><div class="aa"></div><div class="ab">ML API</div><div class="aa"></div><div class="ab">MySQL</div></div></div>
+        <div class="pb"><div class="pnum">// 03</div><div class="ptitle">Smart Agriculture Service</div><p class="pdesc">Spring Boot REST API that integrates with machine learning models to recommend suitable crops based on soil and climate parameters.</p><div class="ptech"><span class="pt">Spring Boot</span><span class="pt">Java</span><span class="pt">REST API</span><span class="pt">MySQL</span></div>
+          <div class="pfoot"><a href="https://github.com/i-saravanan" target="_blank" class="pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a><button class="pdetail-btn" onclick="nav('proj-agri')">Deep Dive →</button></div></div>
       </div>
-
     </div>
   </div>
-</section>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-copy">Built with precision · 2026</div></div></div>
+</div>
 
-<!-- EXPERIENCE & EDUCATION -->
-<section id="experience" style="background:rgba(255,107,43,0.018);border-top:1px solid rgba(255,107,43,0.07);border-bottom:1px solid rgba(255,107,43,0.07)">
-  <div class="section">
-    <div class="sec-label reveal">04 / Journey</div>
-    <h2 class="sec-title reveal rd1">MY <span class="dim">JOURNEY</span></h2>
-    <div class="sec-line reveal rd2"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
-
-      <!-- Experience -->
-      <div class="reveal">
-        <h3 style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:2.5rem">Experience</h3>
-        <div class="exp-grid">
-          <div class="exp-ln">
-            <div class="exp-dot"></div>
-            <div class="exp-connector"></div>
-          </div>
-          <div>
-            <div class="exp-item">
-              <div class="exp-period">2024 – 2026</div>
-              <div class="exp-card">
-                <div class="exp-role">Backend Developer</div>
-                <div class="exp-org">Project-Based Engineering</div>
-                <ul class="exp-ul">
-                  <li>Built production-ready REST APIs with Spring Boot and JPA for real-world use cases</li>
-                  <li>Implemented role-based access control with Spring Security across multi-tenant systems</li>
-                  <li>Designed normalized MySQL schemas handling complex leave and ticketing workflows</li>
-                  <li>Developed an ML-based crop recommendation system using Python and Scikit-learn</li>
-                  <li>Consistently practised DSA on LeetCode for competitive coding readiness</li>
-                </ul>
-              </div>
-            </div>
+<!-- PROJECT DETAIL PAGES -->
+<div class="page" id="page-proj-ticket">
+  <div class="sec" style="padding-top:8rem">
+    <button class="pd-back" onclick="nav('projects')">← Back to Projects</button>
+    <div class="pd-meta reveal"><span class="pd-tag">Spring Boot</span><span class="pd-tag">Spring Security</span><span class="pd-tag">Spring Data JPA</span><span class="pd-tag">MySQL</span><span class="pd-tag">REST API</span></div>
+    <h1 class="pd-title reveal">Role-Based Ticket<br>Management System</h1>
+    <div class="sline reveal rd1"></div>
+    <div class="pd-grid reveal">
+      <div>
+        <div class="pd-block"><h3>Overview</h3><p>A production-grade helpdesk platform with three distinct role tiers — Admin, Manager, and User. Each role has precisely scoped access to ticket operations, enforced at the API layer via Spring Security. The system handles the full lifecycle of support tickets from creation through resolution.</p></div>
+        <div class="pd-block"><h3>Key Features</h3><ul><li>Role-based access control (Admin / Manager / User) with Spring Security filter chain</li><li>Ticket creation, assignment, reassignment, and escalation workflows</li><li>Priority levels and SLA-aware status tracking via Enum state machine</li><li>RESTful APIs following standard HTTP semantics with DTO decoupling</li><li>Normalized MySQL schema with foreign key integrity and lazy loading</li></ul></div>
+        <div class="pd-block"><h3>Engineering Decisions</h3><ul><li>Chose Spring Security filter chain over manual auth for maintainability</li><li>Used DTO pattern to decouple API contracts from entity models</li><li>Separated service layer from controller to enable future unit testing</li><li>Used Enum types for ticket status to prevent invalid state transitions</li></ul></div>
+        <div class="pd-block"><h3>Challenges Solved</h3><ul><li>Circular dependency between User and Role entities — resolved with lazy loading</li><li>Cascading update conflicts on ticket reassignment — handled with explicit merge strategies</li><li>Scope isolation per role without duplicating endpoints — solved via method-level security</li></ul></div>
+      </div>
+      <div>
+        <div class="arch-visual reveal rd1">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--or);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem">System Architecture</div>
+          <div class="arch-flow">
+            <div class="arch-node"><div class="anode-box">HTTP Client</div><span class="anode-arrow">→</span><span class="anode-desc">Browser / Postman</span></div>
+            <div class="arch-node"><div class="anode-box">Spring Security</div><span class="anode-arrow">→</span><span class="anode-desc">Auth filter chain</span></div>
+            <div class="arch-node"><div class="anode-box">REST Controller</div><span class="anode-arrow">→</span><span class="anode-desc">@GetMapping / @PostMapping</span></div>
+            <div class="arch-node"><div class="anode-box">Service Layer</div><span class="anode-arrow">→</span><span class="anode-desc">Business logic</span></div>
+            <div class="arch-node"><div class="anode-box">JPA Repository</div><span class="anode-arrow">→</span><span class="anode-desc">Spring Data queries</span></div>
+            <div class="arch-node"><div class="anode-box">MySQL DB</div><span class="anode-arrow">→</span><span class="anode-desc">Tickets, Users, Roles</span></div>
           </div>
         </div>
+        <div class="terminal-mockup reveal rd2"><div class="tm-hdr"><div class="tm-dot" style="background:#ff5f57"></div><div class="tm-dot" style="background:#febc2e"></div><div class="tm-dot" style="background:#28c840"></div><div class="tm-title">API Endpoints</div></div><div class="tm-body"><div class="tm-line"><span class="tm-cmd">POST</span> /api/auth/login</div><div class="tm-line"><span class="tm-cmd">GET</span>  /api/tickets</div><div class="tm-line"><span class="tm-cmd">POST</span> /api/tickets/create</div><div class="tm-line"><span class="tm-cmd">PUT</span>  /api/tickets/{id}/assign</div><div class="tm-line"><span class="tm-cmd">PUT</span>  /api/tickets/{id}/escalate</div><div class="tm-line"><span class="tm-cmd">PUT</span>  /api/tickets/{id}/resolve</div><div class="tm-line"><span class="tm-cmd">GET</span>  /api/admin/users</div><div class="tm-line" style="margin-top:.8rem"><span class="tm-ok">✓</span> <span class="tm-out">Secured via Spring Security</span></div></div></div>
+        <a href="https://github.com/i-saravanan" target="_blank" class="bp" style="margin-top:1.5rem;display:inline-block">View on GitHub ↗</a>
       </div>
-
-      <!-- Education -->
-      <div class="reveal rd1">
-        <h3 style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:2.5rem">Education</h3>
-        <div class="edu-strip" style="grid-template-columns:1fr">
-          <div class="edu-card">
-            <div class="edu-icon">🎓</div>
-            <div>
-              <div class="edu-deg">B.E. Electronics & Communication Engineering</div>
-              <div class="edu-school">Tamil Nadu, India</div>
-              <div class="edu-year">2022 – 2026 · Graduate</div>
-            </div>
-          </div>
-          <div class="edu-card">
-            <div class="edu-icon">🏫</div>
-            <div>
-              <div class="edu-deg">Higher Secondary Certificate</div>
-              <div class="edu-school">Tamil Nadu State Board</div>
-              <div class="edu-year">Completed 2022</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
-</section>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-copy">Built with precision · 2026</div></div></div>
+</div>
+
+<div class="page" id="page-proj-leave">
+  <div class="sec" style="padding-top:8rem">
+    <button class="pd-back" onclick="nav('projects')">← Back to Projects</button>
+    <div class="pd-meta reveal"><span class="pd-tag">Spring Boot</span><span class="pd-tag">Hibernate</span><span class="pd-tag">MySQL</span><span class="pd-tag">REST API</span><span class="pd-tag">Maven</span></div>
+    <h1 class="pd-title reveal">Employment Leave<br>Management System</h1>
+    <div class="sline reveal rd1"></div>
+    <div class="pd-grid reveal">
+      <div>
+        <div class="pd-block"><h3>Overview</h3><p>A full-featured enterprise leave management backend that models real HR workflows. Employees request leave, managers approve or reject, and HR maintains balance records. Every action is auditable and role-scoped.</p></div>
+        <div class="pd-block"><h3>Key Features</h3><ul><li>Multi-role system: HR Admin, Manager, Employee</li><li>Leave request creation, approval, rejection, and cancellation</li><li>Leave balance tracking with automatic deduction on approval</li><li>Leave type configuration (Annual, Sick, Casual)</li><li>Full CRUD with Hibernate ORM entity mapping and state machine pattern</li></ul></div>
+        <div class="pd-block"><h3>Engineering Decisions</h3><ul><li>Used Hibernate directly (no Spring Data JPA) for fine-grained ORM control</li><li>Designed bidirectional relationships between Employee and LeaveRequest entities</li><li>Implemented state machine pattern for leave status transitions</li><li>Global exception handler via @ControllerAdvice for consistent error responses</li></ul></div>
+      </div>
+      <div>
+        <div class="arch-visual reveal rd1">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--or);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem">Leave Flow Architecture</div>
+          <div class="arch-flow">
+            <div class="arch-node"><div class="anode-box">Employee API</div><span class="anode-arrow">→</span><span class="anode-desc">Request leave</span></div>
+            <div class="arch-node"><div class="anode-box">Validation</div><span class="anode-arrow">→</span><span class="anode-desc">Balance check, conflicts</span></div>
+            <div class="arch-node"><div class="anode-box">Manager API</div><span class="anode-arrow">→</span><span class="anode-desc">Approve / Reject</span></div>
+            <div class="arch-node"><div class="anode-box">HR Admin API</div><span class="anode-arrow">→</span><span class="anode-desc">Balance mgmt, reports</span></div>
+            <div class="arch-node"><div class="anode-box">Hibernate ORM</div><span class="anode-arrow">→</span><span class="anode-desc">Entity persistence</span></div>
+            <div class="arch-node"><div class="anode-box">MySQL DB</div><span class="anode-arrow">→</span><span class="anode-desc">Employees, Leaves, Balances</span></div>
+          </div>
+        </div>
+        <div class="terminal-mockup reveal rd2"><div class="tm-hdr"><div class="tm-dot" style="background:#ff5f57"></div><div class="tm-dot" style="background:#febc2e"></div><div class="tm-dot" style="background:#28c840"></div><div class="tm-title">API Endpoints</div></div><div class="tm-body"><div class="tm-line"><span class="tm-cmd">POST</span> /api/leave/request</div><div class="tm-line"><span class="tm-cmd">GET</span>  /api/leave/my-requests</div><div class="tm-line"><span class="tm-cmd">PUT</span>  /api/leave/{id}/approve</div><div class="tm-line"><span class="tm-cmd">PUT</span>  /api/leave/{id}/reject</div><div class="tm-line"><span class="tm-cmd">GET</span>  /api/hr/balances</div><div class="tm-line"><span class="tm-cmd">PUT</span>  /api/hr/balance/update</div><div class="tm-line" style="margin-top:.8rem"><span class="tm-ok">✓</span> <span class="tm-out">Hibernate session management</span></div></div></div>
+        <a href="https://github.com/i-saravanan" target="_blank" class="bp" style="margin-top:1.5rem;display:inline-block">View on GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-copy">Built with precision · 2026</div></div></div>
+</div>
+
+<div class="page" id="page-proj-agri">
+  <div class="sec" style="padding-top:8rem">
+    <button class="pd-back" onclick="nav('projects')">← Back to Projects</button>
+    <div class="pd-meta reveal"><span class="pd-tag">Spring Boot</span><span class="pd-tag">Java</span><span class="pd-tag">REST API</span><span class="pd-tag">MySQL</span><span class="pd-tag">ML Integration</span></div>
+    <h1 class="pd-title reveal">Smart Agriculture<br>REST Service</h1>
+    <div class="sline reveal rd1"></div>
+    <div class="pd-grid reveal">
+      <div>
+        <div class="pd-block"><h3>Overview</h3><p>A Spring Boot REST API that integrates with a machine learning classification model to recommend the most suitable crop based on soil and climate parameters. It features request validation, prediction caching, and database logging of all inquiries.</p></div>
+        <div class="pd-block"><h3>Key Features</h3><ul><li>REST endpoints for crop recommendation requests and historical query retrieval</li><li>Integration with external ML services via Spring RestTemplate/WebClient</li><li>Validation of soil and climate parameters before processing</li><li>MySQL persistence for logging input metrics and prediction history</li><li>Role-based access control for administrative query analytics</li></ul></div>
+        <div class="pd-block"><h3>Engineering Decisions</h3><ul><li>Used Spring RestTemplate to communicate with the REST-based Machine Learning microservice to keep backend and ML concerns separated</li><li>Stored prediction results in MySQL for auditing and analytical reporting</li><li>Implemented validation constraints on request parameters to prevent sending malformed data to the model</li></ul></div>
+      </div>
+      <div>
+        <div class="arch-visual reveal rd1">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--or);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem">Service Architecture</div>
+          <div class="arch-flow">
+            <div class="arch-node"><div class="anode-box">Client Request</div><span class="anode-arrow">→</span><span class="anode-desc">Soil and climate params</span></div>
+            <div class="arch-node"><div class="anode-box">Spring Boot API</div><span class="anode-arrow">→</span><span class="anode-desc">Parameter validation</span></div>
+            <div class="arch-node"><div class="anode-box">ML Client</div><span class="anode-arrow">→</span><span class="anode-desc">RestTemplate API call</span></div>
+            <div class="arch-node"><div class="anode-box">Prediction Engine</div><span class="anode-arrow">→</span><span class="anode-desc">Model calculation</span></div>
+            <div class="arch-node"><div class="anode-box">MySQL Database</div><span class="anode-arrow">→</span><span class="anode-desc">Query and log logging</span></div>
+            <div class="arch-node"><div class="anode-box">JSON Response</div><span class="anode-arrow">→</span><span class="anode-desc">Recommended crop & confidence</span></div>
+          </div>
+        </div>
+        <div class="terminal-mockup reveal rd2"><div class="tm-hdr"><div class="tm-dot" style="background:#ff5f57"></div><div class="tm-dot" style="background:#febc2e"></div><div class="tm-dot" style="background:#28c840"></div><div class="tm-title">REST Request / Response</div></div><div class="tm-body"><div class="tm-line"><span class="tm-cmd">POST</span> /api/agriculture/recommend</div><div class="tm-line"><span class="tm-out">Body: {"n":90,"p":42,"k":43,"ph":6.5,"temp":20.8,"humidity":82,"rain":202.9}</span></div><div class="tm-line" style="margin-top:.6rem"><span class="tm-cmd">Response</span>:</div><div class="tm-line"><span class="tm-ok">{</span></div><div class="tm-line">  <span class="tm-out">"crop": "Rice",</span></div><div class="tm-line">  <span class="tm-out">"confidence": 0.964,</span></div><div class="tm-line">  <span class="tm-out">"status": "SUCCESS"</span></div><div class="tm-line"><span class="tm-ok">}</span></div></div></div>
+        <a href="https://github.com/i-saravanan" target="_blank" class="bp" style="margin-top:1.5rem;display:inline-block">View on GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-copy">Built with precision · 2026</div></div></div>
+</div>
+
+<!-- SKILLS -->
+<div class="page" id="page-skills">
+  <div class="sec" style="padding-top:8rem;padding-bottom:2rem">
+    <div class="slabel reveal">Skills</div><h1 class="stitle reveal rd1">TECH <span class="dim">STACK</span></h1><div class="sline reveal rd2"></div>
+    <div class="skills-galaxy reveal"><canvas id="skills-canvas"></canvas><div class="sg-core"><span>Backend<br>Stack</span></div></div>
+    <div class="cat-row reveal">
+      <button class="cat-chip active" onclick="filterSkills('all',this)">All</button>
+      <button class="cat-chip" onclick="filterSkills('language',this)">Languages</button>
+      <button class="cat-chip" onclick="filterSkills('framework',this)">Frameworks</button>
+      <button class="cat-chip" onclick="filterSkills('database',this)">Databases</button>
+      <button class="cat-chip" onclick="filterSkills('tool',this)">Tools</button>
+    </div>
+    <div class="skills-grid" id="skills-grid">
+      <div class="sk reveal" style="--w:.92" data-cat="language"><div class="sk-logo"><svg viewBox="0 0 128 128"><path d="M47.6 67.9s-4.4 2.6 3.1 3.4c9 1 13.6.9 23.5-.9 0 0 2.6 1.6 6.2 3-22.1 9.5-50-.5-32.8-5.5z" fill="#ff6b2b"/><path d="M44.9 58.3s-4.9 3.6 2.6 4.4c9.7 1 17.4 1.1 30.7-1.5 0 0 1.8 1.8 4.6 2.8-27.2 7.9-57.5.7-37.9-5.7z" fill="#ff6b2b"/><path d="M66.7 43.1c5.5 6.4-1.5 12.1-1.5 12.1s14-7.2 7.6-16.2c-6-8.4-10.6-12.6 14.3-27 0-.1-39.1 9.7-20.4 31.1z" fill="#ff8f5e"/><path d="M90.2 74.6s3.3 2.7-3.6 4.8c-13 3.9-54.2 5.1-65.6.2-4.1-1.8 3.6-4.2 6-4.7 2.5-.5 3.9-.4 3.9-.4-4.5-3.2-29.2 6.3-12.5 8.9 45.4 7.4 82.8-3.3 71.8-8.8z" fill="#ff6b2b"/><path d="M74.4 1s16.9 16.9-16 42.9c-26.3 20.8-6 32.6 0 46.2-15.4-13.9-26.7-26.1-19.1-37.5C50.1 35.3 80.1 27.2 74.4 1z" fill="#ff8f5e"/></svg></div><div class="sk-name">Java</div><div class="sk-type">Language</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+
+      <div class="sk reveal rd2" style="--w:.84" data-cat="framework"><div class="sk-logo"><svg viewBox="0 0 128 128"><circle cx="64" cy="64" r="52" fill="none" stroke="#6abf69" stroke-width="6"/><path d="M52 40 Q36 64 52 88" stroke="#6abf69" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M76 40 Q92 64 76 88" stroke="#6abf69" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M40 52 Q64 36 88 52" stroke="#6abf69" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M40 76 Q64 92 88 76" stroke="#6abf69" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="64" cy="64" r="10" fill="#6abf69"/></svg></div><div class="sk-name">Spring Boot</div><div class="sk-type">Framework</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+      <div class="sk reveal rd3" style="--w:.83" data-cat="framework"><div class="sk-logo"><svg viewBox="0 0 128 128"><circle cx="64" cy="40" r="16" fill="none" stroke="#6abf69" stroke-width="4"/><circle cx="36" cy="88" r="16" fill="none" stroke="#6abf69" stroke-width="4"/><circle cx="92" cy="88" r="16" fill="none" stroke="#6abf69" stroke-width="4"/><line x1="64" y1="56" x2="36" y2="72" stroke="#6abf69" stroke-width="3"/><line x1="64" y1="56" x2="92" y2="72" stroke="#6abf69" stroke-width="3"/><circle cx="64" cy="40" r="5" fill="#6abf69"/><circle cx="36" cy="88" r="5" fill="#6abf69"/><circle cx="92" cy="88" r="5" fill="#6abf69"/></svg></div><div class="sk-name">Spring Data JPA</div><div class="sk-type">Framework</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+      <div class="sk reveal" style="--w:.82" data-cat="framework"><div class="sk-logo"><svg viewBox="0 0 128 128"><polygon points="64,12 110,36 110,92 64,116 18,92 18,36" fill="none" stroke="#bcae79" stroke-width="5"/><polygon points="64,30 92,46 92,82 64,98 36,82 36,46" fill="none" stroke="#bcae79" stroke-width="3"/><circle cx="64" cy="64" r="10" fill="#bcae79"/></svg></div><div class="sk-name">Hibernate</div><div class="sk-type">ORM Framework</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+      <div class="sk reveal rd1" style="--w:.80" data-cat="database"><div class="sk-logo"><svg viewBox="0 0 128 128"><ellipse cx="64" cy="32" rx="44" ry="16" fill="none" stroke="#00758f" stroke-width="5"/><path d="M20 32 Q20 80 64 88 Q108 80 108 32" fill="none" stroke="#00758f" stroke-width="5"/><path d="M20 50 Q20 80 64 88 Q108 80 108 50" fill="rgba(0,117,143,0.15)"/><text x="64" y="67" text-anchor="middle" fill="#00758f" font-family="monospace" font-weight="bold" font-size="18">SQL</text></svg></div><div class="sk-name">MySQL</div><div class="sk-type">Database</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+      <div class="sk reveal rd2" style="--w:.88" data-cat="tool"><div class="sk-logo"><svg viewBox="0 0 128 128"><rect x="14" y="44" width="100" height="40" rx="8" fill="none" stroke="#00d4b1" stroke-width="4"/><line x1="14" y1="64" x2="114" y2="64" stroke="#00d4b1" stroke-width="2" stroke-dasharray="5,4"/><text x="30" y="57" fill="#00d4b1" font-size="13" font-family="monospace" font-weight="600">GET</text><text x="30" y="79" fill="#00d4b1" font-size="13" font-family="monospace" font-weight="600">POST</text><path d="M80 52 L100 64 L80 76" stroke="#00d4b1" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div><div class="sk-name">REST APIs</div><div class="sk-type">Architecture</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+      <div class="sk reveal rd3" style="--w:.82" data-cat="tool"><div class="sk-logo"><svg viewBox="0 0 128 128"><path d="M124.7 58.6L69.4 3.3a11.2 11.2 0 00-15.8 0L41.8 15.1l15.8 15.8a13.3 13.3 0 0116.8 16.9l15.2 15.2a13.3 13.3 0 11-8 7.9L66.4 55.7v34.9a13.3 13.3 0 11-10.8-.4V54.7A13.3 13.3 0 0148.4 38L32.9 22.5 3.3 52.1a11.2 11.2 0 000 15.8l55.3 55.3a11.2 11.2 0 0015.8 0l50.3-50.3a11.2 11.2 0 000-14.3z" fill="#f05032"/></svg></div><div class="sk-name">Git</div><div class="sk-type">Version Control</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+      <div class="sk reveal" style="--w:.80" data-cat="tool"><div class="sk-logo"><svg viewBox="0 0 128 128"><path d="M64 5C31.2 5 4.7 31.5 4.7 64.3c0 26.2 17 48.5 40.6 56.4 3 .6 4.1-1.3 4.1-2.8v-9.9c-16.6 3.6-20.1-8-20.1-8-2.7-6.9-6.6-8.7-6.6-8.7-5.4-3.7.4-3.6.4-3.6 5.9.4 9 6.1 9 6.1 5.3 9.1 13.9 6.4 17.3 4.9.5-3.9 2.1-6.5 3.8-7.9-13.2-1.5-27-6.6-27-29.5 0-6.5 2.3-11.8 6.1-16-.6-1.5-2.6-7.6.6-15.8 0 0 5-1.6 16.3 6.1 4.7-1.3 9.8-2 14.8-2 5 0 10.1.7 14.8 2C93 32.8 98 34.4 98 34.4c3.2 8.2 1.2 14.3.6 15.8 3.8 4.2 6.1 9.5 6.1 16 0 22.9-13.8 28-27.1 29.4 2.1 1.8 4 5.5 4 11v16.3c0 1.6 1.1 3.4 4.1 2.8 23.6-7.9 40.6-30.2 40.6-56.3C123.3 31.5 96.8 5 64 5z" fill="#e0d0ff"/></svg></div><div class="sk-name">GitHub</div><div class="sk-type">Collaboration</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+      <div class="sk reveal rd1" style="--w:.76" data-cat="tool"><div class="sk-logo"><svg viewBox="0 0 128 128"><path d="M22 64 L64 16 L106 64 L64 112 Z" fill="none" stroke="#c71a36" stroke-width="5"/><path d="M42 64 L64 38 L86 64 L64 90 Z" fill="rgba(199,26,54,0.2)" stroke="#c71a36" stroke-width="3"/><circle cx="64" cy="64" r="8" fill="#c71a36"/></svg></div><div class="sk-name">Maven</div><div class="sk-type">Build Tool</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+      <div class="sk reveal rd2" style="--w:.77" data-cat="framework"><div class="sk-logo"><svg viewBox="0 0 128 128"><rect x="20" y="20" width="88" height="20" rx="4" fill="none" stroke="#ff6b2b" stroke-width="4"/><rect x="20" y="54" width="88" height="20" rx="4" fill="none" stroke="#ff6b2b" stroke-width="4"/><rect x="20" y="88" width="88" height="20" rx="4" fill="none" stroke="#ff6b2b" stroke-width="4"/><line x1="64" y1="40" x2="64" y2="54" stroke="#ff6b2b" stroke-width="3"/><line x1="64" y1="74" x2="64" y2="88" stroke="#ff6b2b" stroke-width="3"/></svg></div><div class="sk-name">JDBC</div><div class="sk-type">Data Access</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+      <div class="sk reveal rd3" style="--w:.75" data-cat="tool"><div class="sk-logo"><svg viewBox="0 0 128 128"><circle cx="64" cy="64" r="52" fill="none" stroke="#ff6c37" stroke-width="5"/><path d="M88 64 A24 24 0 1 1 88 63.9Z" fill="none" stroke="#ff6c37" stroke-width="4"/><circle cx="64" cy="64" r="6" fill="#ff6c37"/></svg></div><div class="sk-name">Postman</div><div class="sk-type">API Testing</div><div class="sk-bar"><div class="sk-bar-f"></div></div></div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-copy">Built with precision · 2026</div></div></div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="page" id="page-experience">
+  <div class="sec" style="padding-top:8rem;padding-bottom:2rem">
+    <div class="slabel reveal">Experience</div><h1 class="stitle reveal rd1">MY <span class="dim">JOURNEY</span></h1><div class="sline reveal rd2"></div>
+    <div class="milestone-grid reveal">
+      <div class="ms-card"><span class="ms-icon">🎫</span><div class="ms-title">Ticket System</div><p class="ms-text">Multi-role helpdesk with Spring Security & JPA</p></div>
+      <div class="ms-card"><span class="ms-icon">💼</span><div class="ms-title">Leave Management</div><p class="ms-text">Enterprise-grade leave workflow with Hibernate ORM</p></div>
+      <div class="ms-card"><span class="ms-icon">🌾</span><div class="ms-title">Smart Agriculture</div><p class="ms-text">Crop prediction with 96%+ accuracy using Spring Boot ML integration</p></div>
+    </div>
+    <div class="slabel reveal" style="margin-bottom:1.5rem">Engineering Experience</div>
+    <div class="road-wrap reveal">
+      <div class="road-line"></div>
+      <div class="road-item"><div class="road-dot"></div><div class="road-year">2024 – 2026</div><div class="road-card"><div class="road-role">Backend Developer</div><div class="road-org">Project-Based Engineering</div><ul class="road-ul"><li>Built production-ready REST APIs with Spring Boot, JPA, and Hibernate for enterprise use cases</li><li>Implemented role-based access control with Spring Security across multi-tenant systems</li><li>Designed normalized MySQL schemas handling complex leave and ticketing workflows</li><li>Developed Smart Agriculture REST Service using Spring Boot, integrating it with ML models for real-time recommendations</li><li>Practiced DSA consistently on LeetCode for competitive coding and placement readiness</li></ul></div></div>
+    </div>
+    <div class="slabel reveal" style="margin-bottom:1rem">Education</div>
+    <div class="edu-strip reveal"><div class="edu-card"><div class="edu-icon">🎓</div><div><div class="edu-deg">B.E. Electronics & Communication Engineering</div><div class="edu-school">Tamil Nadu, India</div><div class="edu-year">2022 – 2026 · Graduate</div></div></div><div class="edu-card"><div class="edu-icon">🏫</div><div><div class="edu-deg">Higher Secondary Certificate</div><div class="edu-school">Tamil Nadu State Board</div><div class="edu-year">Completed 2022</div></div></div></div>
+    <div class="slabel reveal" style="margin-top:3rem;margin-bottom:1.5rem">DSA & Coding Journey</div>
+    <div class="reveal">
+      <div class="dsa-bar-wrap"><div class="dsa-label"><span class="dsa-name">Arrays & Strings</span><span class="dsa-pct">85%</span></div><div class="dsa-bar"><div class="dsa-fill" style="width:85%"></div></div></div>
+      <div class="dsa-bar-wrap"><div class="dsa-label"><span class="dsa-name">Linked Lists</span><span class="dsa-pct">75%</span></div><div class="dsa-bar"><div class="dsa-fill" style="width:75%"></div></div></div>
+      <div class="dsa-bar-wrap"><div class="dsa-label"><span class="dsa-name">Trees & Graphs</span><span class="dsa-pct">65%</span></div><div class="dsa-bar"><div class="dsa-fill" style="width:65%"></div></div></div>
+      <div class="dsa-bar-wrap"><div class="dsa-label"><span class="dsa-name">Dynamic Programming</span><span class="dsa-pct">58%</span></div><div class="dsa-bar"><div class="dsa-fill" style="width:58%"></div></div></div>
+      <div class="dsa-bar-wrap"><div class="dsa-label"><span class="dsa-name">System Design Concepts</span><span class="dsa-pct">70%</span></div><div class="dsa-bar"><div class="dsa-fill" style="width:70%"></div></div></div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-copy">Built with precision · 2026</div></div></div>
+</div>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="section">
-    <div class="sec-label reveal">05 / Contact</div>
-    <h2 class="sec-title reveal rd1">LET'S <span class="dim">CONNECT</span></h2>
-    <div class="sec-line reveal rd2"></div>
-    <div class="contact-grid">
-      <div class="reveal">
-        <h3 class="contact-left" style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.7rem;margin-bottom:0.8rem">Open to Opportunities</h3>
-        <p style="font-size:0.95rem;color:rgba(245,240,255,0.42);line-height:1.85;font-weight:300;margin-bottom:2.5rem">Actively targeting Backend Developer, Java Developer, and Associate Software Engineer roles at product-based companies and MNCs. If you're building something great — let's talk.</p>
-        <div class="c-links">
-          <a href="mailto:saravanan05082004@gmail.com" class="c-link">
-            <div class="c-ico">✉️</div>
-            <div><div class="c-lbl">Email</div><div class="c-val">saravanan05082004@gmail.com</div></div>
-          </a>
-          <a href="https://www.linkedin.com/in/saravanan-i" target="_blank" class="c-link">
-            <div class="c-ico">💼</div>
-            <div><div class="c-lbl">LinkedIn</div><div class="c-val">linkedin.com/in/saravanan-i</div></div>
-          </a>
-          <a href="https://github.com/i-saravanan" target="_blank" class="c-link">
-            <div class="c-ico">🐙</div>
-            <div><div class="c-lbl">GitHub</div><div class="c-val">github.com/i-saravanan</div></div>
-          </a>
+<div class="page" id="page-contact">
+  <div class="sec" style="padding-top:8rem;padding-bottom:2rem">
+    <div class="slabel reveal">Contact</div><h1 class="stitle reveal rd1">LET'S <span class="dim">CONNECT</span></h1><div class="sline reveal rd2"></div>
+    <div class="contact-grid reveal">
+      <div class="c-info">
+        <div class="avail-badge"><div class="avail-dot"></div>Available · Actively looking for roles</div>
+        <h3>Open to Opportunities</h3>
+        <p>Targeting Backend Developer, Java Developer, and Associate Software Engineer roles at product-based companies and MNCs. If you're building something great — let's talk.</p>
+        <div style="margin-top:1.8rem">
+          <a href="docs/resume.pdf" download="Saravanan_I_Resume.pdf" class="bp">Download Resume ⬇</a>
         </div>
       </div>
-      <form
-              class="contact-form reveal rd1"
-              id="contact-form"
-              onsubmit="handleForm(event)"
-      >
-
-        <div class="ff">
-          <label>Your Name</label>
-
-          <input
-                  type="text"
-                  placeholder="John Doe"
-                  id="cf-name"
-                  required
-          >
-        </div>
-
-        <div class="ff">
-          <label>Email Address</label>
-
-          <input
-                  type="email"
-                  placeholder="you@company.com"
-                  id="cf-email"
-                  required
-          >
-        </div>
-
-        <div class="ff">
-          <label>Message</label>
-
-          <textarea
-                  placeholder="Tell me about the role or opportunity..."
-                  id="cf-msg"
-                  required
-          ></textarea>
-        </div>
-
-        <button
-                type="submit"
-                class="f-submit"
-        >
-          Send Message →
-        </button>
-
-      </form>
+      <div class="terminal"><div class="t-hdr"><div class="t-dot" style="background:#ff5f57"></div><div class="t-dot" style="background:#febc2e"></div><div class="t-dot" style="background:#28c840"></div><div class="t-title">saravanan@portfolio:~$</div></div><form id="contact-form" onsubmit="handleForm(event)"><div class="t-body"><div class="t-row"><div class="t-prompt">$ your_name</div><input class="t-input" id="cf-name" placeholder="Enter your name..." required></div><div class="t-row"><div class="t-prompt">$ your_email</div><input class="t-input" id="cf-email" type="email" placeholder="Enter your email..." required></div><div class="t-row"><div class="t-prompt">$ message</div><textarea class="t-input t-textarea" id="cf-msg" placeholder="Your message..." required></textarea></div><button class="t-submit" type="submit">./send_message.sh →</button></div></form></div>
+    </div>
+    <div class="slabel reveal" style="margin-top:3rem;margin-bottom:1rem">Find Me On</div>
+    <div class="social-grid reveal">
+      <a href="https://github.com/i-saravanan" target="_blank" class="sc-card"><div class="sc-ico" style="background:rgba(224,208,255,.08);border:1px solid rgba(224,208,255,.15)"><svg width="24" height="24" viewBox="0 0 24 24" fill="#e0d0ff"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></div><div class="sc-name">GitHub</div><div class="sc-handle">@i-saravanan</div></a>
+      <a href="https://www.linkedin.com/in/saravanan-i" target="_blank" class="sc-card"><div class="sc-ico" style="background:rgba(14,118,168,.1);border:1px solid rgba(14,118,168,.2)"><svg width="24" height="24" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM3.56 20.45h3.55V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></div><div class="sc-name">LinkedIn</div><div class="sc-handle">saravanan-i</div></a>
+      <a href="mailto:saravanan05082004@gmail.com" class="sc-card"><div class="sc-ico" style="background:rgba(255,107,43,.08);border:1px solid rgba(255,107,43,.2)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div class="sc-name">Email</div><div class="sc-handle">saravanan05082004@gmail.com</div></a>
     </div>
   </div>
-</section>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-copy">Built with precision · 2026</div></div></div>
+</div>
 
-<!-- FOOTER -->
-<div style="border-top:1px solid rgba(255,107,43,0.07)">
-  <footer>
-    <div class="foot-logo">Saravanan I.</div>
-    <div class="foot-social">
-      <a href="https://github.com/i-saravanan" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      </a>
-      <a href="https://www.linkedin.com/in/saravanan-i" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM3.56 20.45h3.55V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-      </a>
-      <a href="mailto:saravanan05082004@gmail.com">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-      </a>
+<!-- LAB -->
+<div class="page" id="page-lab">
+  <div class="sec" style="padding-top:8rem;padding-bottom:2rem">
+    <div class="slabel reveal">Experimental Lab</div><h1 class="stitle reveal rd1">THE <span class="dim">LAB ✦</span></h1>
+    <p class="reveal rd1" style="font-size:.95rem;color:rgba(245,240,255,.4);margin-bottom:1rem;font-weight:300">Interactive experiments, visualizers & creative demos.</p>
+    <div class="sline reveal rd2"></div>
+    <div class="lab-grid">
+      <div class="lab-card reveal"><div class="lab-badge">ANIMATION</div><div class="lab-title">Particle Network</div><p class="lab-desc">Real-time connected particle system with dynamic edge rendering.</p><div class="lab-demo"><canvas id="lab-canvas-1" style="width:100%;height:100%"></canvas></div></div>
+      <div class="lab-card reveal rd1"><div class="lab-badge">VISUALIZER</div><div class="lab-title">API Flow</div><p class="lab-desc">Animated REST API request lifecycle — from client to DB and back.</p><div class="lab-demo" id="lab-api-demo"></div></div>
+      <div class="lab-card reveal rd2"><div class="lab-badge">INTERACTIVE</div><div class="lab-title">Orbital Ring</div><p class="lab-desc">Technology icons orbiting a core with glow effects and trail rendering.</p><div class="lab-demo"><canvas id="lab-canvas-3" style="width:100%;height:100%"></canvas></div></div>
     </div>
-    <div class="foot-copy">Built with precision · 2026</div>
-  </footer>
+  </div>
+  <div style="border-top:1px solid rgba(255,107,43,.07)"><div class="foot"><div class="foot-logo">Saravanan I.</div><div class="foot-copy">Built with precision · 2026</div></div></div>
 </div>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
