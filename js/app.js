@@ -191,12 +191,23 @@
   const canvas=document.getElementById('skills-canvas');if(!canvas)return;
   if(galaxyAnim)cancelAnimationFrame(galaxyAnim);
   const wrap=canvas.parentElement;canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;
-  const ctx=canvas.getContext('2d'),cx=canvas.width/2,cy=canvas.height/2;
+  const ctx=canvas.getContext('2d');
   const icons=['☕','🌱','🗄','⚡','🔗','📦','🔬','🐙'];
-  const rings=[{r:90,spd:.005,cnt:3,off:0},{r:160,spd:.003,cnt:5,off:1},{r:220,spd:.0015,cnt:9,off:2}];
+  const baseRings=[{r:90,spd:.005,cnt:3,off:0},{r:160,spd:.003,cnt:5,off:1},{r:220,spd:.0015,cnt:9,off:2}];
   let ang=0;
+  function getRings(){
+    const s=Math.min(canvas.width,canvas.height)/460;
+    return baseRings.map(o=>({...o,r:o.r*Math.max(s,.45)}));
+  }
+  const resizeGalaxy=()=>{
+    const w=canvas.parentElement;
+    canvas.width=w.offsetWidth;canvas.height=w.offsetHeight;
+  };
+  window.addEventListener('resize',resizeGalaxy,{passive:true});
   (function dg(){
-  if(curPage!=='skills')return;
+  if(curPage!=='skills'){window.removeEventListener('resize',resizeGalaxy);return;}
+  const cx=canvas.width/2,cy=canvas.height/2;
+  const rings=getRings();
   ctx.clearRect(0,0,canvas.width,canvas.height);rings.forEach(o=>{ctx.beginPath();ctx.arc(cx,cy,o.r,0,Math.PI*2);ctx.strokeStyle='rgba(255,107,43,0.07)';ctx.lineWidth=1;ctx.stroke();});
   let ti=0;rings.forEach(o=>{for(let i=0;i<o.cnt;i++){const a=ang*o.spd+o.off+(i/o.cnt)*Math.PI*2,x=cx+o.r*Math.cos(a),y=cy+o.r*Math.sin(a);ctx.font='17px serif';ctx.globalAlpha=.55;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(icons[ti%icons.length],x,y);ti++;ctx.globalAlpha=1;}});
   ang++;
