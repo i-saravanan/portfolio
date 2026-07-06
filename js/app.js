@@ -192,7 +192,7 @@
   if(galaxyAnim)cancelAnimationFrame(galaxyAnim);
   const wrap=canvas.parentElement;canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;
   const ctx=canvas.getContext('2d');
-  const icons=['☕','🌱','🗄','⚡','🔗','📦','🔬','🐙'];
+  const icons=['☕','🌱','🗄','⚡','🔗','📦','☁️','🐙'];
   const baseRings=[{r:90,spd:.005,cnt:3,off:0},{r:160,spd:.003,cnt:5,off:1},{r:220,spd:.0015,cnt:9,off:2}];
   let ang=0;
   function getRings(){
@@ -374,3 +374,141 @@
   setTimeout(()=>popup.classList.add('show'),50);
   setTimeout(()=>{popup.classList.remove('show');setTimeout(()=>popup.remove(),400);},3000);
 }
+
+  /* JWT AUTH SIMULATOR */
+  window.runJwtSimulation = function() {
+    const roleSelect = document.getElementById('jwt-role');
+    const statusSelect = document.getElementById('jwt-status');
+    const consoleLogs = document.getElementById('jwt-console-logs');
+    
+    if (!roleSelect || !statusSelect || !consoleLogs) return;
+    
+    const role = roleSelect.value;
+    const status = statusSelect.value;
+    
+    const steps = [
+      document.getElementById('step-jwt-parse'),
+      document.getElementById('step-jwt-sign'),
+      document.getElementById('step-jwt-exp'),
+      document.getElementById('step-jwt-role')
+    ];
+    
+    // Reset all steps classes
+    steps.forEach(s => {
+      if (s) s.className = 'jwt-step';
+    });
+    
+    consoleLogs.innerHTML = '';
+    
+    const log = (text, type = 'info') => {
+      const el = document.createElement('div');
+      el.className = 'jwt-log-line';
+      if (type === 'error') el.style.color = '#ff8888';
+      else if (type === 'success') el.style.color = 'var(--tl2)';
+      else if (type === 'warn') el.style.color = '#ff8f5e';
+      else el.style.color = 'var(--wh)';
+      el.textContent = text;
+      consoleLogs.appendChild(el);
+      consoleLogs.scrollTop = consoleLogs.scrollHeight;
+    };
+    
+    log(`[REQUEST] GET /api/admin/users`, 'warn');
+    
+    let currentStep = 0;
+    
+    const nextStep = () => {
+      if (currentStep >= steps.length) {
+        log(`[SUCCESS] Access Granted! 200 OK`, 'success');
+        return;
+      }
+      
+      const stepEl = steps[currentStep];
+      if (stepEl) {
+        stepEl.classList.add('active-check');
+      }
+      
+      setTimeout(() => {
+        if (currentStep === 0) {
+          // Parse Header Step
+          if (status === 'MISSING') {
+            if (stepEl) {
+              stepEl.classList.remove('active-check');
+              stepEl.classList.add('failed');
+            }
+            log(`[FAIL] Authorization header missing or malformed`, 'error');
+            log(`[SECURITY] Authentication failed. 401 Unauthorized`, 'error');
+            return;
+          } else {
+            if (stepEl) {
+              stepEl.classList.remove('active-check');
+              stepEl.classList.add('passed');
+            }
+            log(`[INFO] Authorization: Bearer eyJhbGci...`);
+            log(`[PASS] JWT Header parsed successfully`);
+            currentStep++;
+            setTimeout(nextStep, 600);
+          }
+        } else if (currentStep === 1) {
+          // Verify Signature Step
+          if (status === 'TAMPERED') {
+            if (stepEl) {
+              stepEl.classList.remove('active-check');
+              stepEl.classList.add('failed');
+            }
+            log(`[FAIL] JWT Signature verification failed!`, 'error');
+            log(`[SECURITY] Authentication failed. 401 Unauthorized`, 'error');
+            return;
+          } else {
+            if (stepEl) {
+              stepEl.classList.remove('active-check');
+              stepEl.classList.add('passed');
+            }
+            log(`[PASS] HMAC-SHA256 signature verified`);
+            currentStep++;
+            setTimeout(nextStep, 600);
+          }
+        } else if (currentStep === 2) {
+          // Expiration check Step
+          if (status === 'EXPIRED') {
+            if (stepEl) {
+              stepEl.classList.remove('active-check');
+              stepEl.classList.add('failed');
+            }
+            log(`[FAIL] JWT has expired (exp: 2026-07-06T12:00:00Z)`, 'error');
+            log(`[SECURITY] Authentication failed. 401 Unauthorized`, 'error');
+            return;
+          } else {
+            if (stepEl) {
+              stepEl.classList.remove('active-check');
+              stepEl.classList.add('passed');
+            }
+            log(`[PASS] Token claims validated. exp matches future timeline`);
+            currentStep++;
+            setTimeout(nextStep, 600);
+          }
+        } else if (currentStep === 3) {
+          // Role Authorization Check Step
+          log(`[INFO] Claims: sub=saravanan, roles=[ROLE_${role}]`);
+          if (role !== 'ADMIN') {
+            if (stepEl) {
+              stepEl.classList.remove('active-check');
+              stepEl.classList.add('failed');
+            }
+            log(`[FAIL] Access Denied: ROLE_${role} lacks ADMIN privileges`, 'error');
+            log(`[SECURITY] Authorization failed. 403 Forbidden`, 'error');
+            return;
+          } else {
+            if (stepEl) {
+              stepEl.classList.remove('active-check');
+              stepEl.classList.add('passed');
+            }
+            log(`[PASS] Authority ROLE_ADMIN verified`);
+            currentStep++;
+            setTimeout(nextStep, 600);
+          }
+        }
+      }, 500);
+    };
+    
+    setTimeout(nextStep, 300);
+  };
